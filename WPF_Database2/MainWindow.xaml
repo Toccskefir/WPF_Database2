@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <DockPanel>
+            <Label Content="Állatkertbe költöző állatok" HorizontalContentAlignment="Center" FontSize="30" DockPanel.Dock="Top"/>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
+                <Button x:Name="buttonCreate" Content="Hozzáad" Width="100" Margin="10"/>
+                <Button x:Name="buttonUpdate" Content="Módosít" Width="100" Margin="10"/>
+                <Button x:Name="buttonDelete" Content="Töröl" Width="100" Margin="10"/>
+            </StackPanel>
+            <DataGrid x:Name="dataGridAnimals"/>
+        </DockPanel>
     </Grid>
 </Window>
