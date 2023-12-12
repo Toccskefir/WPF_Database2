@@ -32,12 +32,23 @@ namespace WPF_Database2
 
         private void buttonCreate_Click(object sender, RoutedEventArgs e)
         {
-
+            AnimalForm form = new AnimalForm(this.service);
+            form.Closed += (_, _) => Read();
+            form.ShowDialog();
         }
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
+            Animal selected = dataGridAnimals.SelectedItem as Animal;
+            if (selected == null)
+            {
+                MessageBox.Show("Módosításhoz válasszon ki egy állatot!");
+                return;
+            }
 
+            AnimalForm form = new AnimalForm(this.service, selected);
+            form.Closed += (_, _) => Read();
+            form.ShowDialog();
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
